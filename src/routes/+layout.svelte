@@ -2,4 +2,6 @@
 	import '../css/main.css';
 </script>
 
-<slot />
+<main class="min-h-dvh">
+	<slot />
+</main>

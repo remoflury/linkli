@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+  body {
+    @apply bg-slate-950 text-white
+  }
+
+  h1 {
+    @apply text-3xl font-bold mb-8
+  }
+  .section-spacing {
+    @apply py-12
+  }
+
+  .grid-content {
+    @apply grid grid-cols-4 gap-x-4;
+    @apply md:grid-cols-8;
+    @apply lg:grid-cols-12
+  }
+
+  .grid-content > * {
+    @apply col-span-full md:col-span-6 md:col-start-2 lg:col-start-4
+  }
+
+  label,
+  input {
+    @apply inline-block w-full rounded-md
+  }
+
+  input {
+    @apply text-slate-950 focus:!ring-red-700 focus:!ring-1 focus:!outline-none mt-2
+  }
+
+  input[type="text"] {
+    @apply form-input
+  }
+}
