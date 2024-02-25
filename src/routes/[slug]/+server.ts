@@ -10,7 +10,7 @@ export const GET: RequestHandler = async ({url}) => {
 
   const {numbers, letters} = getIdFromSlug(slug)
 
-  if (!numbers || !letters) error(404, 'Ups, sorry. De link gids leider ned.')
+  if (!numbers || !letters) redirect(303, '/upsala')
 
   const connection = await createDBConnection();
   let redirectUrl: string
@@ -21,7 +21,7 @@ export const GET: RequestHandler = async ({url}) => {
     const [result] = await connection.execute(sql, values);
 
     //@ts-expect-error result is an array
-    if (result.length === 0) error(404, 'Ups, sorry. De link gids leider ned.')
+    if (result.length === 0) redirect(303, '/upsala')
     //@ts-expect-error result is an array
     // redirectUrl = result[0].original_url
     redirectUrl = createRedirectUrl(result[0].original_url)
