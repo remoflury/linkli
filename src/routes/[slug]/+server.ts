@@ -2,7 +2,7 @@
 import { error,  redirect } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
 import { createDBConnection } from "$lib/db/db";
-import { getIdFromSlug } from "$lib/utils";
+import { createRedirectUrl, getIdFromSlug } from "$lib/utils";
 
 
 export const GET: RequestHandler = async ({url}) => {
@@ -23,7 +23,8 @@ export const GET: RequestHandler = async ({url}) => {
     //@ts-expect-error result is an array
     if (result.length === 0) error(404, 'Ups, sorry. De link gids leider ned.')
     //@ts-expect-error result is an array
-    redirectUrl = result[0].original_url
+    // redirectUrl = result[0].original_url
+    redirectUrl = createRedirectUrl(result[0].original_url)
   } catch (err) {
     console.error(err);
     error(500, 'Uuups, da isch öppis ned so guet.')

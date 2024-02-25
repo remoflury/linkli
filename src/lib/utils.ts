@@ -15,3 +15,9 @@ export const getIdFromSlug = (slug: string) => {
     return { numbers: null, letters: null };
   }
 }
+
+export const createRedirectUrl = (url: string): string => {
+  if (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("www.")) return url
+
+  return `https://${url}`
+}
