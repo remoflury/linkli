@@ -3,6 +3,9 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
+      colors: {
+        transparent: 'transparent'
+      },
       container: {
         center: true,
         padding: {
