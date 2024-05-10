@@ -1,6 +1,6 @@
 # Linkli
 
-This project is a simple link shortener. It is built with SvelteKit and uses Pocketbase as a database.
+This project is a simple link shortener. It is built with SvelteKit and uses a plain mysql db.
 
 ## Installation
 
